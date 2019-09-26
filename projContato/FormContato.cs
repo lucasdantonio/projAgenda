@@ -47,7 +47,7 @@ namespace projContato {
                     dataGridViewFones.Rows.Add(contato.Fones[i].Numero, contato.Fones[i].Tipo);
                 }
             } else {
-                MessageBox.Show("Contato não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox("Erro", "Contato não encontrado");
             }
    
         }
@@ -58,38 +58,45 @@ namespace projContato {
 
         private void ButtonAdicionarFone_Click(object sender, EventArgs e)
         {
-            dataGridViewFones.Rows.Add(textBoxNumero.Text,comboBoxTipo.SelectedItem);
-
-            contato.adicionarFone(new Fone(textBoxNumero.Text, comboBoxTipo.Text));
-            this.Size = new System.Drawing.Size(344, 427);
-
-            LimparForm(2);
+            if(textBoxNumero.Text.Equals("")) {
+                MsgBox("Atenção", "Campo número vazio");
+            } else {
+                dataGridViewFones.Rows.Add(textBoxNumero.Text, comboBoxTipo.SelectedItem);
+                contato.adicionarFone(new Fone(textBoxNumero.Text, comboBoxTipo.Text));
+                this.Size = new System.Drawing.Size(344, 427);
+                LimparForm(2);
+            }
+            
         }
 
         private void ButtonGravar_Click(object sender, EventArgs e) {
             contato.Email = textBoxEmail.Text;
             contato.Nome = textBoxNome.Text;
-            
-            lista.adicionar(contato);
 
-            if (lista.MeusContatos.Contains(new Contato(textBoxEmail.Text))) {
-                lista.alterar(contato);
-                MessageBox.Show("Contato alterado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (textBoxEmail.Text.Equals("") || textBoxNome.Text.Equals("") || dataGridViewFones.Rows.Count == 0) {
+                MsgBox("Atenção", "Preencha todos os campos");
             } else {
-                lista.adicionar(contato);
-                MessageBox.Show("Contato criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (lista.MeusContatos.Contains(new Contato(textBoxEmail.Text))) {
+                    lista.alterar(contato);
+                    MsgBox("Sucesso", "Contato alterado com sucesso");
+                } else {
+                    lista.adicionar(contato);
+                    MsgBox("Sucesso", "Contato criado com sucesso");
+                }
+
+                LimparForm(1);
             }
 
-            LimparForm(1);
+                
 
         }
 
         private void ButtonExcluir_Click(object sender, EventArgs e) {
             if(lista.remover(new Contato(textBoxEmail.Text))) {
-                MessageBox.Show("Contato removido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgBox("Sucesso", "Contato removido");
                 LimparForm(1);
             } else {
-                MessageBox.Show("Contato não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox("Erro", "Contato não encontrado");
             }
         }
         private void LimparForm(int op) {
@@ -112,7 +119,18 @@ namespace projContato {
                     dataGridViewFones.Rows.Remove(dataGridViewFones.CurrentRow);
                 }
             } else {
-                MessageBox.Show("Selecione um telefone!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MsgBox("Erro", "Selecione um telefone");
+            }
+        }
+
+        private void MsgBox(string opcao, string texto) {
+            if (opcao.Equals("Sucesso")) {
+                MessageBox.Show(texto, opcao, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else if (opcao.Equals("Atenção")) {
+                MessageBox.Show(texto, opcao, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+               
+            } else if (opcao.Equals("Erro")) {
+                MessageBox.Show(texto, opcao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
