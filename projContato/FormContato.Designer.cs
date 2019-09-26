@@ -23,7 +23,7 @@
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxForm = new System.Windows.Forms.GroupBox();
             this.dataGridViewFones = new System.Windows.Forms.DataGridView();
             this.foneNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +46,7 @@
             this.buttonAdicionarFone = new System.Windows.Forms.Button();
             this.labelTipo = new System.Windows.Forms.Label();
             this.labelNumero = new System.Windows.Forms.Label();
+            this.buttonAbrirLista = new System.Windows.Forms.Button();
             this.groupBoxForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFones)).BeginInit();
             this.groupBoxOpcoes.SuspendLayout();
@@ -76,22 +77,22 @@
             this.dataGridViewFones.AllowUserToResizeColumns = false;
             this.dataGridViewFones.AllowUserToResizeRows = false;
             this.dataGridViewFones.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewFones.ColumnHeadersHeight = 30;
             this.dataGridViewFones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewFones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.foneNumero,
             this.foneTipo});
             this.dataGridViewFones.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dataGridViewFones.Location = new System.Drawing.Point(73, 89);
+            this.dataGridViewFones.Location = new System.Drawing.Point(64, 89);
             this.dataGridViewFones.Name = "dataGridViewFones";
             this.dataGridViewFones.ReadOnly = true;
             this.dataGridViewFones.RowHeadersVisible = false;
@@ -102,19 +103,21 @@
             // 
             // foneNumero
             // 
+            this.foneNumero.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.foneNumero.HeaderText = "Número";
             this.foneNumero.Name = "foneNumero";
             this.foneNumero.ReadOnly = true;
             // 
             // foneTipo
             // 
+            this.foneTipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.foneTipo.HeaderText = "Tipo";
             this.foneTipo.Name = "foneTipo";
             this.foneTipo.ReadOnly = true;
             // 
             // buttonAdicionar
             // 
-            this.buttonAdicionar.Location = new System.Drawing.Point(73, 272);
+            this.buttonAdicionar.Location = new System.Drawing.Point(64, 272);
             this.buttonAdicionar.Name = "buttonAdicionar";
             this.buttonAdicionar.Size = new System.Drawing.Size(99, 23);
             this.buttonAdicionar.TabIndex = 10;
@@ -124,7 +127,7 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(177, 272);
+            this.buttonRemover.Location = new System.Drawing.Point(168, 272);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(99, 23);
             this.buttonRemover.TabIndex = 9;
@@ -134,14 +137,14 @@
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(73, 63);
+            this.textBoxNome.Location = new System.Drawing.Point(64, 63);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(203, 20);
             this.textBoxNome.TabIndex = 7;
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(73, 34);
+            this.textBoxEmail.Location = new System.Drawing.Point(64, 34);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(203, 20);
             this.textBoxEmail.TabIndex = 6;
@@ -149,7 +152,7 @@
             // labelFones
             // 
             this.labelFones.AutoSize = true;
-            this.labelFones.Location = new System.Drawing.Point(30, 92);
+            this.labelFones.Location = new System.Drawing.Point(21, 92);
             this.labelFones.Name = "labelFones";
             this.labelFones.Size = new System.Drawing.Size(39, 13);
             this.labelFones.TabIndex = 5;
@@ -158,7 +161,7 @@
             // labelNome
             // 
             this.labelNome.AutoSize = true;
-            this.labelNome.Location = new System.Drawing.Point(30, 63);
+            this.labelNome.Location = new System.Drawing.Point(21, 63);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(38, 13);
             this.labelNome.TabIndex = 4;
@@ -167,7 +170,7 @@
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(30, 37);
+            this.labelEmail.Location = new System.Drawing.Point(21, 37);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(38, 13);
             this.labelEmail.TabIndex = 3;
@@ -287,11 +290,23 @@
             this.labelNumero.TabIndex = 0;
             this.labelNumero.Text = "Nº:";
             // 
+            // buttonAbrirLista
+            // 
+            this.buttonAbrirLista.Location = new System.Drawing.Point(12, 388);
+            this.buttonAbrirLista.Name = "buttonAbrirLista";
+            this.buttonAbrirLista.Size = new System.Drawing.Size(302, 37);
+            this.buttonAbrirLista.TabIndex = 5;
+            this.buttonAbrirLista.Text = "Lista de Contatos";
+            this.buttonAbrirLista.UseVisualStyleBackColor = true;
+            this.buttonAbrirLista.Visible = false;
+            this.buttonAbrirLista.Click += new System.EventHandler(this.ButtonAbrirLista_Click);
+            // 
             // FormContato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 388);
+            this.Controls.Add(this.buttonAbrirLista);
             this.Controls.Add(this.groupBoxFones);
             this.Controls.Add(this.groupBoxOpcoes);
             this.Controls.Add(this.groupBoxForm);
@@ -301,7 +316,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerenciador de Contatos";
-            this.Load += new System.EventHandler(this.FormContato_Load);
             this.groupBoxForm.ResumeLayout(false);
             this.groupBoxForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFones)).EndInit();
@@ -328,14 +342,15 @@
         private System.Windows.Forms.Button buttonAdicionar;
         private System.Windows.Forms.Button buttonRemover;
         private System.Windows.Forms.DataGridView dataGridViewFones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn foneNumero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn foneTipo;
         private System.Windows.Forms.GroupBox groupBoxFones;
         private System.Windows.Forms.ComboBox comboBoxTipo;
         private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Button buttonAdicionarFone;
         private System.Windows.Forms.Label labelTipo;
         private System.Windows.Forms.Label labelNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn foneNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn foneTipo;
+        private System.Windows.Forms.Button buttonAbrirLista;
     }
 }
 

@@ -13,7 +13,7 @@ namespace projContato {
 
         Contato contato;
         Contatos lista;
-
+        FormLista frmLista;
 
         public DataGridView dataGridViewFones2;
 
@@ -50,10 +50,6 @@ namespace projContato {
                 MsgBox("Erro", "Contato não encontrado");
             }
    
-        }
-
-        private void FormContato_Load(object sender, EventArgs e) {
-            
         }
 
         private void ButtonAdicionarFone_Click(object sender, EventArgs e)
@@ -132,6 +128,11 @@ namespace projContato {
             } else if (opcao.Equals("Erro")) {
                 MessageBox.Show(texto, opcao, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ButtonAbrirLista_Click(object sender, EventArgs e) {
+            frmLista = new FormLista(lista);
+            frmLista.Show();
         }
     }
 }
