@@ -34,14 +34,14 @@ namespace projContato
             return contatoAchado;
         }
 
-        public bool alterar(Contato c, Contato n)
+        public bool alterar(Contato c)
         {
             int posicao;
             posicao = this.meusContatos.IndexOf(c);
             if (posicao > -1)
             {
                 this.meusContatos.RemoveAt(posicao);
-                this.meusContatos.Insert(posicao, n);
+                this.meusContatos.Insert(posicao, c);
             }
             return (posicao > -1);
         }

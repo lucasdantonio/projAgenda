@@ -23,6 +23,7 @@
         /// o conteúdo deste método com o editor de código.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBoxForm = new System.Windows.Forms.GroupBox();
             this.dataGridViewFones = new System.Windows.Forms.DataGridView();
             this.foneNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,15 +71,33 @@
             // 
             // dataGridViewFones
             // 
+            this.dataGridViewFones.AllowUserToAddRows = false;
             this.dataGridViewFones.AllowUserToDeleteRows = false;
-            this.dataGridViewFones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewFones.AllowUserToResizeColumns = false;
+            this.dataGridViewFones.AllowUserToResizeRows = false;
+            this.dataGridViewFones.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewFones.ColumnHeadersHeight = 30;
+            this.dataGridViewFones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewFones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.foneNumero,
             this.foneTipo});
-            this.dataGridViewFones.Location = new System.Drawing.Point(73, 92);
+            this.dataGridViewFones.GridColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dataGridViewFones.Location = new System.Drawing.Point(73, 89);
             this.dataGridViewFones.Name = "dataGridViewFones";
             this.dataGridViewFones.ReadOnly = true;
-            this.dataGridViewFones.Size = new System.Drawing.Size(208, 174);
+            this.dataGridViewFones.RowHeadersVisible = false;
+            this.dataGridViewFones.RowHeadersWidth = 100;
+            this.dataGridViewFones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewFones.Size = new System.Drawing.Size(203, 174);
             this.dataGridViewFones.TabIndex = 11;
             // 
             // foneNumero
@@ -105,7 +124,7 @@
             // 
             // buttonRemover
             // 
-            this.buttonRemover.Location = new System.Drawing.Point(182, 272);
+            this.buttonRemover.Location = new System.Drawing.Point(177, 272);
             this.buttonRemover.Name = "buttonRemover";
             this.buttonRemover.Size = new System.Drawing.Size(99, 23);
             this.buttonRemover.TabIndex = 9;
@@ -116,14 +135,14 @@
             // 
             this.textBoxNome.Location = new System.Drawing.Point(73, 63);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(208, 20);
+            this.textBoxNome.Size = new System.Drawing.Size(203, 20);
             this.textBoxNome.TabIndex = 7;
             // 
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(73, 34);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(208, 20);
+            this.textBoxEmail.Size = new System.Drawing.Size(203, 20);
             this.textBoxEmail.TabIndex = 6;
             // 
             // labelFones
@@ -174,6 +193,7 @@
             this.buttonExcluir.TabIndex = 7;
             this.buttonExcluir.Text = "Excluir";
             this.buttonExcluir.UseVisualStyleBackColor = true;
+            this.buttonExcluir.Click += new System.EventHandler(this.ButtonExcluir_Click);
             // 
             // buttonPesquisar
             // 
@@ -223,7 +243,8 @@
             // 
             this.comboBoxTipo.FormattingEnabled = true;
             this.comboBoxTipo.Items.AddRange(new object[] {
-            "Telefone",
+            "Residencial",
+            "Comercial",
             "Celular"});
             this.comboBoxTipo.Location = new System.Drawing.Point(62, 44);
             this.comboBoxTipo.Name = "comboBoxTipo";

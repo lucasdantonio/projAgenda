@@ -46,7 +46,7 @@ namespace projContato
         { }
         #endregion
 
-        #region Construtores
+        #region Metodos
         public void adicionarFone(Fone fone)
         {
             this.fones.Add(fone);
