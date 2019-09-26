@@ -12,22 +12,22 @@ namespace projContato {
     public partial class FormContato : Form {
 
         Contato contato;
-        Fone fone;
         Contatos lista;
+
+
         public DataGridView dataGridViewFones2;
 
         public FormContato() {
             InitializeComponent();
 
             contato = new Contato();
-            fone = new Fone();
             lista = new Contatos();
 
             this.Size = new System.Drawing.Size(344, 427);
             comboBoxTipo.SelectedIndex = 0;
         }
         private void ButtonNovo_Click(object sender, EventArgs e) {
-            LimparForm();
+            LimparForm(1);
         }
             
         private void ButtonAdicionar_Click(object sender, EventArgs e) {
@@ -39,7 +39,7 @@ namespace projContato {
             if(lista.MeusContatos.Contains(new Contato(textBoxEmail.Text))) {
                 contato = lista.pesquisar(new Contato(textBoxEmail.Text));
          
-                LimparForm();
+                LimparForm(1);
 
                 textBoxEmail.Text = contato.Email;
                 textBoxNome.Text = contato.Nome;
@@ -62,6 +62,8 @@ namespace projContato {
 
             contato.adicionarFone(new Fone(textBoxNumero.Text, comboBoxTipo.Text));
             this.Size = new System.Drawing.Size(344, 427);
+
+            LimparForm(2);
         }
 
         private void ButtonGravar_Click(object sender, EventArgs e) {
@@ -78,25 +80,40 @@ namespace projContato {
                 MessageBox.Show("Contato criado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            LimparForm();
+            LimparForm(1);
 
         }
 
         private void ButtonExcluir_Click(object sender, EventArgs e) {
             if(lista.remover(new Contato(textBoxEmail.Text))) {
                 MessageBox.Show("Contato removido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LimparForm();
+                LimparForm(1);
             } else {
                 MessageBox.Show("Contato não encontrado!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LimparForm() {
-            textBoxEmail.Text = "";
-            textBoxNome.Text = "";
-            dataGridViewFones.Rows.Clear();
-            textBoxNumero.Text = "";
-            comboBoxTipo.SelectedIndex = 0;
+        private void LimparForm(int op) {
+            if (op == 1) {
+                textBoxEmail.Text = "";
+                textBoxNome.Text = "";
+                dataGridViewFones.Rows.Clear();
+                textBoxNumero.Text = "";
+                comboBoxTipo.SelectedIndex = 0;
+            } else {
+                textBoxNumero.Text = "";
+                comboBoxTipo.SelectedIndex = 0;
+            }
+            
         }
 
+        private void ButtonRemover_Click(object sender, EventArgs e) {
+            if (dataGridViewFones.Rows.Count >= 1) {
+                if (dataGridViewFones.Rows[dataGridViewFones.CurrentRow.Index].IsNewRow != true) {
+                    dataGridViewFones.Rows.Remove(dataGridViewFones.CurrentRow);
+                }
+            } else {
+                MessageBox.Show("Selecione um telefone!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }
